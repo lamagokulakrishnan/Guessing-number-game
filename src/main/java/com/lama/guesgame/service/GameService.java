@@ -76,5 +76,11 @@ public class GameService {
         }
         return number.toString();
     }
+
+    public Game getBestScore() {
+        // Fetch the game with the best score (lowest score first)
+        return repository.findTopByOrderByScoreAsc()
+                         .orElseThrow(() -> new RuntimeException("No players found"));
+    }
 }
 
