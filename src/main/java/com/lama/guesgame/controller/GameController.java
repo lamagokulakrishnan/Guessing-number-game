@@ -26,5 +26,10 @@ public class GameController {
     public GameResponseDTO guess(@RequestBody GameRequestDTO gameRequestDTO) {
         return gameService.checkGuess(gameRequestDTO.getGuess(), gameRequestDTO.getPlayerName());
     }
+
+    @GetMapping("/best-score")
+    public Game getBestScore() {
+        return gameService.getBestScore();
+    }
 }
 
