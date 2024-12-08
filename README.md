@@ -82,8 +82,8 @@ playerName (String): Your name.
 Example request body:
 
 {
-  "guess": "1234",
-  "playerName": "John"
+  "guess": "1213",
+  "playerName": "lama"
 }
 
 Response:
