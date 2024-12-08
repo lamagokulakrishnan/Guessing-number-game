@@ -21,7 +21,7 @@ Welcome to the **Guessing Number Game**! This is a web-based game built using **
 ### 1. Clone the repository
 Clone this repository to your local machine.
 
-git clone https://github.com/your-username/guessing-number-game.git
+git clone https://github.com/lamagokulakrishnan/guessing-number-game.git
 
 2. Set up the database
 
