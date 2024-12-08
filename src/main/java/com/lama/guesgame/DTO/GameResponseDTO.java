@@ -11,12 +11,14 @@ public class GameResponseDTO {
     private long timeTaken;
     private String bestPlayer;
     private String feedback;
+    private double score;
 
     public GameResponseDTO(String feedback, int moves, long timeTaken, String bestPlayer) {
         this.feedback = feedback;
         this.moves = moves;
         this.timeTaken = timeTaken;
         this.bestPlayer = bestPlayer;
+        this.score = score;
     }
 
     // Getters and setters
@@ -50,6 +52,13 @@ public class GameResponseDTO {
 
     public void setBestPlayer(String bestPlayer) {
         this.bestPlayer = bestPlayer;
+    }
+    public double getScore() {
+        return score;
+    }
+
+    public void setScore(double score) {
+        this.score = score;
     }
 
 }
