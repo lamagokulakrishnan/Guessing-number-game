@@ -56,12 +56,19 @@ public class GameService {
             Optional<GameResult> topPlayerResult = repository.findTopByOrderByScoreAsc();
 
             String bestPlayer = topPlayerResult
-                    .map(GameResult::getPlayerName) // Extract playerName from the GameResult if present
-                    .orElse("No player found");    // Default message if no player is found
+                    .map(GameResult::getPlayerName)
+                    .orElse("No player found");
+
             return new GameResponseDTO("Congratulations! You've guessed it.", moves, timeTaken, bestPlayer);
         }
 
         return new GameResponseDTO(feedback.toString(), moves, 0, null);
+    }
+
+    public String getBestPlayer() {
+        Optional<GameResult> topPlayerResult = repository.findTopByOrderByScoreAsc();
+        return topPlayerResult.map(result -> "Best Player: " + result.getPlayerName() + ", Score: " + result.getScore())
+                .orElse("No games played yet.");
     }
 
     private String generateNumber() {
@@ -74,13 +81,7 @@ public class GameService {
                 number.append(digit);
             }
         }
+        System.out.println("Generated number: " + number);
         return number.toString();
     }
-
-    public Game getBestScore() {
-        // Fetch the game with the best score (lowest score first)
-        return repository.findTopByOrderByScoreAsc()
-                         .orElseThrow(() -> new RuntimeException("No players found"));
-    }
 }
-
